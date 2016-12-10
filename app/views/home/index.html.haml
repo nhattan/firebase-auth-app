@@ -1,0 +1,21 @@
+%h1 Firebase Auth Demo
+-#%p Find me in app/views/home/index.html.erb
+
+- if session[:auth]
+  %h2 ようこそ #{session[:auth].dig('info', 'name') || '匿名'} さん
+  %p
+    - if image_url = session[:auth].dig('info', 'image')
+      = image_tag image_url, size: '32x32'
+    - if email = session[:auth].dig('info', 'email')
+      #{email}
+
+  %div
+    = text_area_tag 'auth', session[:auth].to_h.to_json, size: '100x15', readonly: true, style: 'font-family:"Courier New"; font-size:14px'
+
+%div
+  %button#js-firebase-auth{type: 'button'}
+    Firebase Anonymous Auth
+  %button#js-firebase-google-auth{type: 'button'}
+    Firebase Google Auth
+  - if session[:auth]
+    = button_to 'Sign out', '/', method: :delete

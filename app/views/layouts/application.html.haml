@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title FirebaseAuthApp
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'https://www.gstatic.com/firebasejs/3.6.3/firebase.js'
+    = javascript_include_tag 'https://apis.google.com/js/platform.js', async: true, defer: true
+    :javascript
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAa1LKUF-QT89ZEmqeZO6mnc-C_MoUe4jM",
+        authDomain: "rails-integration-test.firebaseapp.com",
+        databaseURL: "https://rails-integration-test.firebaseio.com",
+        storageBucket: "rails-integration-test.appspot.com",
+        messagingSenderId: "415374748394"
+      };
+      firebase.initializeApp(config);
+  %body
+    = yield
+
+
