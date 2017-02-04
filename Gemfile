@@ -30,7 +30,6 @@ gem 'hamlit-rails', github: 'mfung/hamlit-rails'
 gem 'omniauth'
 gem 'jwt'
 gem 'httparty'
-gem 'ruby_firebase_verify'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
